@@ -19,3 +19,5 @@ def total_salary(path: str) -> tuple:
 result = total_salary("salary.txt")
 print(f"Total salary: {result[0]}")
 print(f"Average salary: {result[1]}")
+
+#1
