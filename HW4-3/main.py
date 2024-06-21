@@ -8,24 +8,25 @@ def directory_content(path: Path) -> str:
     try:
         for item in path.iterdir():
             if item.is_dir():
-                print(f"{Fore.RED} [FOLDER] {item.name} {Style.RESET_ALL}")
+                print(f"{Fore.BLUE} [FOLDER] {item.name} {Style.RESET_ALL}")
             else:
-                print(f"{Fore.GREEN} [FILE] {item.name} {Style.RESET_ALL}")
+                print(f"{Fore.GREEN} [FILE]   {item.name} {Style.RESET_ALL}")
     except:
-        print("Smth went wrong")            
+        print("Smth went wrong 0_o")            
 
 def main():
     if len(sys.argv) > 1:
         directory_path = Path(sys.argv[1])
     else:
-        print("Enter the path: python main.py <path_to_directory>")
+        print("Enter the path: 'python main.py <path_to_directory>'")
+        sys.exit(1)
         
     if not directory_path.exists():
-        print(f"Error: The path '{directory_path}' does not exist.")
+        print(f"{Fore.RED}Error: The path '{directory_path}' does not exist.")
         sys.exit(1)
         
     if not directory_path.is_dir():
-        print(f"Error: The path '{directory_path}' is not a directory.")
+        print(f"{Fore.RED}Error: The path '{directory_path}' is not a directory.")
         sys.exit(1)
         
     directory_content(directory_path)
