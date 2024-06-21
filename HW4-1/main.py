@@ -1,23 +1,22 @@
 def total_salary(path: str) -> tuple:
     total = 0
-    count = 0
+    amount = 0
     
     try:
-        with open(path, "r", encoding="utf-8") as file:
+        with open(path, "r", encoding = "UTF-8") as file:
             for line in file:
-                name, salary = line.strip().split(',')
-                total += int(salary)
-                count += 1
+                name, salary = line.strip().split(",")
                 
+                total += int(salary)
+                amount += 1
+                
+            average = total/amount
+               
+            print(f"Total: {total}\nAverage: {average}")   
+            return (total, average)
+        
     except FileNotFoundError:
-        print(f"File not found: {path}")
+        print("File not Found")
         return (0, 0)
-    
-    average = total / count
-    return (total, average)
 
-result = total_salary("salary.txt")
-print(f"Total salary: {result[0]}")
-print(f"Average salary: {result[1]}")
-
-#1
+total_salary("salary.txt")
